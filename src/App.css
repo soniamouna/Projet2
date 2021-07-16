@@ -1,32 +1,132 @@
-.App {
-  text-align: center;
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);
+/* @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&family=Parisienne&family=Zen+Loop&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Castoro&family=Crimson+Text:wght@700&family=Parisienne&family=Zen+Loop&display=swap');
+
+
+/* font-family */
+.font-family-paris{
+  font-family: 'Parisienne', cursive !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* icons + logo */
+
+.logo-paris-event{
+  color:rgb(255, 0, 157)!important;
+  font-weight: bold;
+  border: 1px solid rgb(255, 0, 157);
+  border-radius: 5px 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.icon-tower{
+  vertical-align: middle;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.heart{
+  color:rgb(255, 0, 157)!important;
+  border: 1px solid rgb(255, 0, 157);
+  padding:10px;
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.text-decoration-none{
+  text-decoration: none;
 }
+
+
+
+/* @media (prefers-reduced-motion: no-preference) { 
+} */
+
+
+h2{
+  font-family: 'Zen Loop', cursive;
+  font-weight:700!important;
+  color:rgb(255, 0, 157);
+
+}
+
+p{
+  font-family: 'Castoro', serif;
+}
+
+.navbar{
+  font-size: large;
+   color:rgb(255, 0, 157);
+
+}
+
+.navbar:hover{
+   color:rgb(255, 82, 82);
+
+}
+.selected{
+  font-weight: bold;
+  text-decoration-line: underline;
+   color:rgb(255, 0, 157);
+   text-shadow: 1px 1px 2px pink;
+
+}
+
+.bgnav-gradient{
+  
+  background: rgb(255,167,209);
+  background: linear-gradient(270deg, rgba(255,167,209,1) 0%, rgba(255,248,197,1) 52%, rgba(127,249,255,1) 100%);}
+
+
+
+.titlehome{
+  font-weight: bold;
+  font-size:100px;
+}
+
+.phome{
+  font-size:xx-large;
+  font-weight:bolder;
+  font-family: 'Zen Loop', cursive;
+}
+
+.hrhome{
+  width: 400px;
+  
+}
+
+/* Card style */
+
+.card:hover{
+  box-shadow: 4px 3.5px 2px 4px rgba(255, 153, 204, 0.2);
+}
+.card-title{
+  color:black;
+  font-weight: bold;
+  font-size:20px;
+}
+
+.card-lead-text{
+  color: black!important ;
+}
+
+/* search */
+
+.titlesearch{
+  font-weight: bold;
+  font-size:70px;
+}
+.input-search{
+  border: 2px solid grey;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.button-search{
+  border: 2px solid grey;
+  color:rgb(255, 0, 157);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+
 
 @keyframes App-logo-spin {
   from {
