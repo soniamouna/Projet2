@@ -3,68 +3,83 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import {  Image } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import DATA from '../_data/que-faire-a-paris-.json'
+import DATA from '../_data/que-faire-a-paris-.json';
+import { Card} from 'react-bootstrap';
+import Axios from 'axios';
+
 
 
 function Evenement() {
 
     const params=useParams();
     const id = params.id;
-    const [event, setEvent]=useState(null)
+    const [eventState, setEvent]=useState(null)
 
     useEffect(()=>{
-       // Axios.get("https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records").then(
-            //   (res)=>{
-            //     const tab=res.data.records
-            //     const recordTab=[];
-            //     tab.forEach(function(tab){
-            //        recordTab.push(tab.record);
-            //     })
-        setEvent(
-            DATA.filter(d=>d.recordid===id)[0]
-        );
+       Axios.get(`https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records/${id}`).then(
+              (res)=>{
+                  console.log(res.data.record)
+                setEvent(res.data.record)
+              
     },[]);
 
+})
+
     return (
-        <div className="container col-lg-12 justify-content-center">
-            <div className="row">
+        <div className="mt-5 container col-lg-12 justify-content-center">
+            <div className="row mt-5">
+            
+            {eventState && 
+                <div className="pb-5 row  mt-5">
+                    <h1 className="text-center titlesearch font-family-paris">{eventState.fields.title}</h1>
+                    <Image className=" mt-5" src={eventState.fields.cover_url} fluid />
+                    <div className="text-center col-lg-8">
+                        {/* Sous-titre */}
+                        <h2 className=" mt-5">{eventState.fields.lead_text}</h2>
+                        {/* Description de l'événement */}
+                        <p  className=" mt-5" dangerouslySetInnerHTML={{__html: eventState.fields.description}}></p>
+                    </div>
 
-                <div className="col-lg-9">
-                    {event && <h1>{event.fields.title}</h1>}
-                    <Image src="https://img.passeportsante.net/1000x526/2021-05-06/i106626-signes-bonne-sante-du-chat.jpg" fluid />
+                    <div className=" mt-5 col-lg-3">
+                        {/* bouton de sauvegarde */}
+                        <a style={{textDecoration:"none"}} href="#" className="heart fa fa-heart"> Sauvegarde</a>
+                     
+                        {/* dates */}
+                        <div className=" mt-5">
+                            <h3 >Dates</h3>
+                            <p dangerouslySetInnerHTML={{__html: eventState.fields.date_description}}></p> 
+
+                            {/* prix */}
+                            <h3>Prix ({eventState.fields.price_type}) :</h3>
+                            <p dangerouslySetInnerHTML={{__html: eventState.fields.price_detail}}></p>
+
+                            {/* map */}
+                            <h3>S'y rendre</h3>
+                            <p>{eventState.fields.address_name}</p>
+                            <p>{eventState.fields.adress_street}</p>
+                            <p>{eventState.fields.address_zipcode} {eventState.fields.address_city}</p>
+
+                            {/* transport */}
+                            <h3>En transport</h3>
+                            <p dangerouslySetInnerHTML={{__html: eventState.fields.transport}}></p> 
+
+                            {/* plus d'infos */}
+                            <h3>Plus d'info</h3>
+                            <ul style={{listStyle:"none"}}>
+                                <li><a style={{textDecoration:"none"}} href="#">{eventState.fields.contact_phone}</a></li>
+                                <li><a style={{textDecoration:"none"}} href="#">{eventState.fields.contact_mail}</a></li>
+                                <li><a style={{textDecoration:"none"}} href="https://www.facebook.com/BUTOHPARIS">{eventState.fields.contact_facebook}</a></li>
+                            </ul> 
+
+                        </div>
+                    </div>
                 </div>
 
-                <div className="col-lg-2">
-                     {/* bouton de sauvegarde */}
-                    <p>sauvegarde</p>
-                    {/* dates */}
-                    <h3>Dates</h3>
-                    <p>date</p>
-
-                    {/* prix */}
-                    <h3>prix</h3>
-                    <p>prix</p>
-
-                    {/* map */}
-
-
-                    {/* transport */}
-                    <h3>transport</h3>
-                    <p>coordonnées</p>
-
-                    {/* plus d'infos */}
-                    <h3>Plus d'info</h3>
-                    <ul>
-                        <li><a  href="">téléphone</a></li>
-                        <li><a  href="">mail</a></li>
-                        <li><a  href="">fb</a></li>
-                    </ul>
-
-                </div>
-               
-            </div>
-
+            }
+            
         </div>
+
+    </div>
     );
 }
 
