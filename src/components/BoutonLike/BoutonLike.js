@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 
-
-
 function BoutonLike(props) {
+  // Création du state
   const [boutonFavorisState, setBoutonFavoris] = useState(false);
+  // Récupération des props dans une variable
   const recordBoutonCard = props.recordCard;
 
+  //Après le chargement de la page,
+  //on récupère les données du localStorage sous forme de JSON,
+  //Si le localStorage n'est pas vide alors pour chaque actualité leur cœur seront remplis
   useEffect(() => {
     if (localStorage.getItem("event-fav")) {
       const eventFavoris = JSON.parse(localStorage.getItem("event-fav"));
-      console.log(eventFavoris);
       if (eventFavoris.length != 0) {
         eventFavoris.map((value) => {
           if (value.record.id == recordBoutonCard.record.id) {
@@ -20,20 +22,30 @@ function BoutonLike(props) {
     }
   }, [recordBoutonCard]);
 
+  //Fonction permettant d'ajouter l'acutalité aux Favoris
   function addFavoris(data) {
+    // Si le localStorage n'est pas vide alors
+    // on récupère l'ensemble des données du localStorage sous forme de JSON dans une variable
+    // dans laquelle on ajoutera les données de l'actualité qu'on a aimé/sauvegardé,
+    // qu'on remettre sous forme de string
+
+    //Sinon, on ajoute directement, les données de l'actualité qu'on a aimé/sauvegardé,
+    //sous forme de string dans le localStorage
     if (localStorage.getItem("event-fav")) {
       const eventFavoris = JSON.parse(localStorage.getItem("event-fav"));
       eventFavoris.push(data);
-      console.log(eventFavoris);
       localStorage.setItem("event-fav", JSON.stringify(eventFavoris));
     } else {
       localStorage.setItem("event-fav", JSON.stringify([data]));
     }
-
     setBoutonFavoris(true);
   }
+  //Fonction permettant de supprimer l'acutalité des Favoris
 
   function removeFavoris(data) {
+    // On récupère l'ensemble des données du localStorage sous forme de JSON dans une variable
+    // on compare l'id des données du localStorage et de l'actualité sur laquelle on a cliqué
+    // pour ensuite le retirer de localStorage
     const eventFavoris = JSON.parse(localStorage.getItem("event-fav"));
     const item = eventFavoris.filter(
       (value) => value.record.id != data.record.id
@@ -44,8 +56,12 @@ function BoutonLike(props) {
 
   return (
     <div>
+      {/* Condition pour mettre le bouton avec soit la fonction ajoutée soit retirée l'actualité */}
       {boutonFavorisState ? (
-        <button className="heart" onClick={() => removeFavoris(recordBoutonCard)}>
+        <button
+          className="heart"
+          onClick={() => removeFavoris(recordBoutonCard)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

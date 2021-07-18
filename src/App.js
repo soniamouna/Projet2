@@ -11,6 +11,7 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 function App() {
   return (
     <BrowserRouter>
+      {/*** Menu Navbar ***/}
       <header className="pb-5">
         <Navbar
           fixed="top"
@@ -24,6 +25,7 @@ function App() {
             />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
+                {/* Logo */}
                 <Navbar.Brand
                   className="px-2 bg-light logo-paris-event"
                   href="/"
@@ -60,6 +62,7 @@ function App() {
         </Navbar>
       </header>
 
+      {/*** Route vers les différentes pages ***/}
       {/* Accueil */}
       <Switch>
         <Route exact path="/" component={Accueil} />

@@ -15,8 +15,8 @@ a {
   text-decoration: none !important;
 }
 
-ul{
-  list-style:none;
+ul {
+  list-style: none;
 }
 
 /*** font-family ***/
@@ -28,13 +28,28 @@ ul{
   font-family: "Zen Loop", cursive;
 }
 
-/*** icons + logo ***/
+/*** logo ***/
 
 .logo-paris-event {
   color: rgb(255, 0, 157) !important;
   font-weight: bold;
   border: 1px solid rgb(255, 0, 157);
   border-radius: 5px 20px;
+}
+
+/*** Boutons Like ***/
+.heart {
+  color: rgb(255, 0, 157) !important;
+  border: 1px solid rgb(255, 0, 157);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.heart:hover {
+  color: white !important;
+  border: 1px solid rgb(255, 0, 157);
+  background-color: rgb(255, 0, 157);
 }
 
 /*** Navbar ***/
@@ -124,7 +139,7 @@ ul{
   border-bottom-right-radius: 5px;
 }
 
-/* Evenement */
+/*** Evenement ***/
 
 .event-infos {
   border: 1px solid rgb(255, 0, 157) !important;
@@ -132,27 +147,15 @@ ul{
   margin-left: 50px;
 }
 
-.more-infos{
+.more-infos {
   padding-left: 0px;
 }
 
-.fa{
-  color :rgb(255, 0, 157)!important;
-}
-
-/*** Boutons Like ***/
-.heart {
+.fa {
   color: rgb(255, 0, 157) !important;
-  border: 1px solid rgb(255, 0, 157);
-  padding: 10px;
-  border-radius: 5px;
-  background-color: white;
 }
 
-.heart:hover {
-  color: white !important;
-  border: 1px solid rgb(255, 0, 157);
-  background-color: rgb(255, 0, 157);
+p img {
+  width: 100% !important;
+  padding-bottom: 30px;
 }
-
-
