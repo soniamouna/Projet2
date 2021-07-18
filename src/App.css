@@ -1,138 +1,158 @@
 @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);
-/* @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@700&family=Parisienne&family=Zen+Loop&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Castoro&family=Crimson+Text:wght@700&family=Parisienne&family=Zen+Loop&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Castoro&family=Crimson+Text:wght@700&family=Parisienne&family=Zen+Loop&display=swap");
 
-
-/* font-family */
-.font-family-paris{
-  font-family: 'Parisienne', cursive !important;
+h2 {
+  font-family: "Zen Loop", cursive;
+  font-weight: 700 !important;
+  color: rgb(255, 0, 157);
 }
 
-/* icons + logo */
+p {
+  font-family: "Castoro", serif;
+}
 
-.logo-paris-event{
-  color:rgb(255, 0, 157)!important;
+a {
+  text-decoration: none !important;
+}
+
+ul{
+  list-style:none;
+}
+
+/*** font-family ***/
+.font-family-paris {
+  font-family: "Parisienne", cursive !important;
+}
+
+.font-family-zen-loop {
+  font-family: "Zen Loop", cursive;
+}
+
+/*** icons + logo ***/
+
+.logo-paris-event {
+  color: rgb(255, 0, 157) !important;
   font-weight: bold;
   border: 1px solid rgb(255, 0, 157);
   border-radius: 5px 20px;
 }
 
-.icon-tower{
-  vertical-align: middle;
-}
-
-.heart{
-  color:rgb(255, 0, 157)!important;
-  border: 1px solid rgb(255, 0, 157);
-  padding:10px;
-  border-radius: 5px;
-}
-
-
-
-.text-decoration-none{
-  text-decoration: none;
-}
-
-
-
-/* @media (prefers-reduced-motion: no-preference) { 
-} */
-
-
-h2{
-  font-family: 'Zen Loop', cursive;
-  font-weight:700!important;
-  color:rgb(255, 0, 157);
-
-}
-
-p{
-  font-family: 'Castoro', serif;
-}
-
-.navbar{
+/*** Navbar ***/
+.navbar {
   font-size: large;
-   color:rgb(255, 0, 157);
-
+  color: rgb(255, 0, 157);
 }
 
-.navbar:hover{
-   color:rgb(255, 82, 82);
-
+.navbar:hover {
+  color: rgb(255, 82, 82);
 }
-.selected{
+.selected {
   font-weight: bold;
   text-decoration-line: underline;
-   color:rgb(255, 0, 157);
-   text-shadow: 1px 1px 2px pink;
-
+  color: rgb(255, 0, 157);
+  text-shadow: 1px 1px 2px pink;
 }
 
-.bgnav-gradient{
-  
-  background: rgb(255,167,209);
-  background: linear-gradient(270deg, rgba(255,167,209,1) 0%, rgba(255,248,197,1) 52%, rgba(127,249,255,1) 100%);}
+.bgnav-gradient {
+  background: rgb(255, 167, 209);
+  background: linear-gradient(
+    270deg,
+    rgba(255, 167, 209, 1) 0%,
+    rgba(255, 248, 197, 1) 52%,
+    rgba(127, 249, 255, 1) 100%
+  );
+}
 
-
-
-.titlehome{
+/*** Accueil ***/
+.titlehome {
   font-weight: bold;
-  font-size:100px;
+  font-size: 100px;
 }
 
-.phome{
-  font-size:xx-large;
-  font-weight:bolder;
-  font-family: 'Zen Loop', cursive;
+.phome {
+  font-size: xx-large;
+  font-weight: bolder;
+  font-family: "Zen Loop", cursive;
 }
 
-.hrhome{
+.hrhome {
   width: 400px;
-  
 }
 
-/* Card style */
-
-.card:hover{
+/*** Card style ***/
+.card {
+  border-radius: 5px;
+}
+.card:hover {
   box-shadow: 4px 3.5px 2px 4px rgba(255, 153, 204, 0.2);
 }
-.card-title{
-  color:black;
+
+.card-image {
+  height: 250px;
+}
+.card-title {
+  color: black;
   font-weight: bold;
-  font-size:20px;
+  font-size: 20px;
 }
 
-.card-lead-text{
-  color: black!important ;
+.card-lead-text {
+  color: black !important ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
 }
 
-/* search */
+/*** Search ***/
 
-.titlesearch{
+.titlesearch {
   font-weight: bold;
-  font-size:70px;
+  font-size: 70px;
 }
-.input-search{
+.input-search {
   border: 2px solid grey;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
-.button-search{
+.button-search {
   border: 2px solid grey;
-  color:rgb(255, 0, 157);
+  color: rgb(255, 0, 157);
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 
+/* Evenement */
 
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.event-infos {
+  border: 1px solid rgb(255, 0, 157) !important;
+  border-radius: 10px;
+  margin-left: 50px;
 }
+
+.more-infos{
+  padding-left: 0px;
+}
+
+.fa{
+  color :rgb(255, 0, 157)!important;
+}
+
+/*** Boutons Like ***/
+.heart {
+  color: rgb(255, 0, 157) !important;
+  border: 1px solid rgb(255, 0, 157);
+  padding: 10px;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.heart:hover {
+  color: white !important;
+  border: 1px solid rgb(255, 0, 157);
+  background-color: rgb(255, 0, 157);
+}
+
+
