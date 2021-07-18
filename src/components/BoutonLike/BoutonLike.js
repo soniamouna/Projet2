@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function BoutonLike(props) {
-  // Création du state
+  // Création du state pour le bouton de sauvegarde
   const [boutonFavorisState, setBoutonFavoris] = useState(false);
   // Récupération des props dans une variable
   const recordBoutonCard = props.recordCard;

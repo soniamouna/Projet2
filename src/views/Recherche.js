@@ -1,11 +1,22 @@
 import Axios from "axios";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Cards from "../components/cards/Cards";
 
 function Recherche() {
-  // Création du state sauvegarder les données de l'actualité en fonction de la recherche
+  // Création du state pour sauvegarder les données de l'actualité en fonction de la recherche
   const [recordState, setRecord] = useState(null);
-  
+
+  // Création du state pour sauvegarder toutes les données de toutes les actualités de l'API
+  const [recordSearchState, setRecordSearch] = useState(null);
+
+  //Après le chargement de la page, récupération de toutes les données de toutes les actualités de l'API pour le passer au state
+  useEffect(() => {
+    Axios.get(
+      "https://opendata.paris.fr/api/v2/catalog/datasets/que-faire-a-paris-/records"
+    ).then((res) => {
+      setRecordSearch(res.data.records);
+    });
+  }, []);
 
   const inputRef = useRef();
 
@@ -40,7 +51,7 @@ function Recherche() {
           ref={inputRef}
           className="col-lg-6 input-search text-center form-search"
           type="text"
-          placeholder="Search"
+          placeholder="Recherche"
         />
 
         <button className="button-search" type="submit">
@@ -50,7 +61,7 @@ function Recherche() {
 
       {recordState && (
         <div className="mt-5 mb-5 col-lg-12 row g-4">
-          <h2>Résultats de la recherche:</h2>
+          <h2>Résultat(s) de la recherche:</h2>
           {/* S'il n'y pas de résultat suite à la recherche un message nous l'informera 
           sinon les résultats s'afficheront sous forme de plusieurs card*/}
           {recordState.length ? (
@@ -64,6 +75,20 @@ function Recherche() {
           ) : (
             <h1 className="text-center">Pas de résultat! </h1>
           )}
+        </div>
+      )}
+
+      {/* Tous les événements */}
+      {recordSearchState && (
+        <div className="mt-5 mb-5 col-lg-12 row g-4">
+          <h2>Retrouvez tous les événements qui se déroulent à Paris ! </h2>
+          <div className="row col-lg-12">
+            {recordSearchState.map((value, i) => (
+              <div className="col-lg-4 ">
+                <Cards recordState={value} />
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>

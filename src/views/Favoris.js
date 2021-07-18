@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Cards from "../components/cards/Cards";
 
 function Favoris() {
-  // Création du state
+  // Création du state pour la liste des favoris 
   const [listFavState, setListFav] = useState([]);
 
   //Après le chargement de la page,

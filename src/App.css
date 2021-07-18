@@ -37,6 +37,10 @@ ul {
   border-radius: 5px 20px;
 }
 
+.logo-paris-event:hover{
+  transform: scale(1.1);
+}
+
 /*** Boutons Like ***/
 .heart {
   color: rgb(255, 0, 157) !important;
@@ -97,6 +101,10 @@ ul {
 /*** Card style ***/
 .card {
   border-radius: 5px;
+}
+
+.card:hover{
+  transform: scale(1.1);
 }
 .card:hover {
   box-shadow: 4px 3.5px 2px 4px rgba(255, 153, 204, 0.2);

@@ -9,7 +9,7 @@ import BoutonLike from "../components/BoutonLike/BoutonLike";
 function Evenement() {
   const params = useParams();
   const id = params.id;
-  // Création du state
+  // Création du state pour sauvegarder les données de l'acutalité lié à l'id passé en paramètre à l'url
   const [eventState, setEvent] = useState(null);
 
   //Après le chargement de la page,
