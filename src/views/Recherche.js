@@ -1,7 +1,5 @@
 import Axios from "axios";
 import { useState, useRef } from "react";
-import { Card } from "react-bootstrap";
-import Moment from "react-moment";
 import Cards from "../components/cards/Cards";
 
 function Recherche() {
@@ -51,14 +49,14 @@ function Recherche() {
       </form>
 
       {recordState && (
-        <div className="mt-5 col-lg-12 row g-4">
+        <div className="mt-5 mb-5 col-lg-12 row g-4">
           <h2>Résultats de la recherche:</h2>
           {/* S'il n'y pas de résultat suite à la recherche un message nous l'informera 
           sinon les résultats s'afficheront sous forme de plusieurs card*/}
           {recordState.length ? (
             <div className="row col-lg-12">
               {recordState.map((value, i) => (
-                <div className="col-lg-4">
+                <div className="col-lg-4 ">
                   <Cards recordState={value} />
                 </div>
               ))}

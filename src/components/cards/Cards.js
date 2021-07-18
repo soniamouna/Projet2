@@ -8,9 +8,9 @@ function Cards(props) {
   const recordCard = props.recordState;
 
   return (
-    <div className="justify-content-center m-auto container ">
+    <div className="justify-content-center m-auto container col-sm-12 ">
       {recordCard && (
-        <Card className="m-auto card mt-5" style={{ width: "25rem" }}>
+        <Card className="col-sm-12 m-auto card mt-5" style={{ width: "22rem" }}>
           <a
             className="text-decoration-none"
             href={`evenement/${recordCard.record.id}`}
